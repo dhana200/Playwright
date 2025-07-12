@@ -23,7 +23,7 @@ test.describe('Timesheet Tests', () => {
         "notes": "Automation Testing."
     };
 
-    test.only('TimeSheet Update', async ({browser}) => {
+    test('TimeSheet Update', async ({browser}) => {
 
         const newContext = await browser.newContext();
         const page = await newContext.newPage();
