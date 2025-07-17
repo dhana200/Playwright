@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test tests/APILecture.spec.ts --headed" 
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.54.1",
     "@types/node": "^22.14.0"
   }
 }

@@ -1,11 +1,11 @@
-import {test, expect, request} from '@playwright/test';
+import { test, expect, request } from '@playwright/test';
 
 // Importing the APIUtils class from the Utils directory
 // This class handles API interactions such as login and order creation
 import { APIUtils } from './Utils/APIUtils';
 
 // Initialize response variable to store the order response
-let response:any;
+let response: any;
 
 // Define the login payload
 // This should match the structure expected by the API
@@ -16,10 +16,13 @@ let loginpayload = {
 
 // Define the order payload
 // This should match the structure expected by the API
-let orderPayload = {orders:[{country:"Cuba",productOrderedId:"67a8df1ac0d3e6622a297ccb"}]};
+let orderPayload = { orders: [{ country: "Cuba", productOrderedId: "67a8df1ac0d3e6622a297ccb" }] };
 
-test.beforeAll(async () =>{
-    
+// Fake response for testing purposes
+const fakePayLoadOrders = { data: [], message: "No Orders" };
+
+test.beforeAll(async () => {
+
     // Create a new API context for making API requests
     const apiContext = await request.newContext();
 
@@ -32,7 +35,7 @@ test.beforeAll(async () =>{
 
 });
 
-test('API Testcase', async ({page}) => {
+test('Fake API Response', async ({ page }) => {
 
     // Set the token in local storage for the page context
     // This allows the page to access the token for authenticated requests
@@ -40,23 +43,32 @@ test('API Testcase', async ({page}) => {
         window.localStorage.setItem('token', value);
     }, response.token);
 
-    
+
     // Go to the client page
     await page.goto('https://rahulshettyacademy.com/client/');
-    
-    
+
+
     //Check if Logged in successfully
     await expect(page).toHaveTitle("Let's Shop");
 
     // Wait for the page to load completely
     await page.waitForLoadState('networkidle');
 
+    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*',
+        async route => {
+            const OrderRequest = await page.request.fetch(route.request());
+            const body = JSON.stringify(fakePayLoadOrders);
+            route.fulfill({
+                response : OrderRequest,
+                body,
+            });
+        }
+    );
+
     // Click on the Orders button to navigate to the orders page
-    await page.getByRole('button', {name: '  ORDERS'}).click();
+    await page.getByRole('button', { name: '  ORDERS' }).click();
 
-    // Wait for the orders table to be visible
-    console.log(await page.locator('.ng-star-inserted th[scope="row"]').first().textContent());
+    // await page.waitForResponse('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*');
 
-    // Check if the order ID from the response is present in the orders table
-    expect(await page.locator('.ng-star-inserted th[scope="row"]').first().textContent()).toContain(response.OrderId);
+    // await page.pause();
 });
