@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 import { Console } from 'console';
 
-test('Testcase 1', async({browser}) => {
+test('@REG Testcase 1', async({browser}) => {
 
     // Launch the browser
     const context = await browser.newContext();
@@ -64,14 +64,14 @@ test('Testcase 1', async({browser}) => {
         console.log(`${cardTitle} is not present in the cart.`);
     }
 
+    // Go to the cart page
+    const cartButton = page.locator('button[routerlink="/dashboard/cart"]');
+    await cartButton.click();
+
     ////// LIST PAGE //////
 
 
     ////// CART PAGE //////
-
-    // Go to the cart page
-    const cartButton = page.locator('button[routerlink="/dashboard/cart"]');
-    await cartButton.click();
     
     // Verify if correct item is added to the cart
     console.log(await page.locator('.cartSection h3').textContent());

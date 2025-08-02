@@ -1,7 +1,7 @@
 import{test, expect} from '@playwright/test';
 
 
-test('Demo-Assignment', async({browser}) => {
+test('@WEB Demo-Assignment', async({browser}) => {
 
     // Launch the browser
     const context = await browser.newContext();

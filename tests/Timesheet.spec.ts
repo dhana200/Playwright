@@ -5,16 +5,16 @@ const statejson = './state.json';
 test.describe('Timesheet Tests', () => {
 
     const loginpayload = {
-        "employeeid": "agnana",
-        "password": "Alpha@007!"
+        "employeeid": "pdhanush",
+        "password": "Keerthi@2k"
     };
 
     const baseTimesheetPayload = {
         "mode": "sheet",
-        "employee": "agnana",
+        "employee": "pdhanush",
         "shift_end": "02:00:00",
-        "start": "01:00 pm",
-        "end": "10:00 pm",
+        "start": "10:00 am",
+        "end": "06:00 pm",
         "hours": "8.00",
         "earning": "REG",
         "department": "732",
@@ -36,6 +36,7 @@ test.describe('Timesheet Tests', () => {
         for (let i = 0; i < 5; i++) {
             const d = new Date(monday);
             d.setDate(monday.getDate() + i);
+            console.log(`Date for weekday ${i + 1}: ${d}`);
             const mm = String(d.getMonth() + 1).padStart(2, '0');
             const dd = String(d.getDate()).padStart(2, '0');
             const yyyy = d.getFullYear();
@@ -44,7 +45,7 @@ test.describe('Timesheet Tests', () => {
         return weekdays;
     }
 
-    test.only('TimeSheet Update for Working Week', async ({ browser }) => {
+    test('@TIME TimeSheet Update for Working Week', async ({ browser }) => {
 
         // Create a new browser context and page
         const newContext = await browser.newContext();
@@ -72,6 +73,7 @@ test.describe('Timesheet Tests', () => {
 
         await page.waitForLoadState('networkidle');
 
+
         await newContext.storageState({ path: 'state.json' });
 
         // Read the state.json file and extract the PHPSESSID token from cookies
@@ -81,7 +83,7 @@ test.describe('Timesheet Tests', () => {
         console.log(`Token from state.json: ${token}`);
 
         // Set the week start date (e.g., "07/14/2025" for Monday)
-        const weekStartDate = "07/14/2025";
+        const weekStartDate = "07/28/2025";
         const weekdays = getWeekdays(weekStartDate);
 
         for (const date of weekdays) {

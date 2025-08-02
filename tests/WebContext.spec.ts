@@ -31,7 +31,7 @@ test.beforeAll(async({browser}) => {
 });
 
 
-test('Opening with prerequisites', async({browser}) => {
+test('@WEB Opening with prerequisites', async({browser}) => {
 
     webContext = await browser.newContext({
         storageState: 'state.json'
