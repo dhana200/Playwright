@@ -1,16 +1,28 @@
 {
   "name": "playwright",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/APILecture.spec.ts --headed" 
+    "API": "npx playwright test --grep @API",
+    "WEB": "npx playwright test --grep @WEB",
+    "TIME": "npx playwright test --grep @TIME",
+    "test": "npx playwright test",
+    "test:all": "npx playwright test --all",
+    "test:debug": "npx playwright test --debug",
+    "test:report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.54.1",
-    "@types/node": "^22.14.0"
+    "@types/node": "^22.14.0",
+    "allure-playwright": "^3.3.2"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^12.1.0",
+    "tsc": "^2.0.4"
   }
 }

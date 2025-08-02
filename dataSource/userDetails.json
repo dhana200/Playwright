@@ -1,0 +1,9 @@
+{
+    "creditCardNumber": "4111111111111111",
+    "cvv": "123",
+    "nameOnCard": "Ichigo Kurosaki",
+    "couponCode": "COUPON123",
+    "expiryDate": "08",
+    "expiryMonth": "27",
+    "location": "Ameri"
+}

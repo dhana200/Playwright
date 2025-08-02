@@ -1,0 +1,6 @@
+Token from state.json: iug4pn6eqpth94am92rje8jkq5
+Date for weekday 1: Mon Jul 28 2025 00:00:00 GMT+0530 (India Standard Time)
+Date for weekday 2: Tue Jul 29 2025 00:00:00 GMT+0530 (India Standard Time)
+Date for weekday 3: Wed Jul 30 2025 00:00:00 GMT+0530 (India Standard Time)
+Date for weekday 4: Thu Jul 31 2025 00:00:00 GMT+0530 (India Standard Time)
+Date for weekday 5: Fri Aug 01 2025 00:00:00 GMT+0530 (India Standard Time)

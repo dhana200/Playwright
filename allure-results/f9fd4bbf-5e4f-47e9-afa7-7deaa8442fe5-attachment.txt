@@ -1,0 +1,3 @@
+Order PayLoad: {"orders":[{"country":"Cuba","productOrderedId":"67a8df1ac0d3e6622a297ccb"}]}
+Order Response: {"orders":["688a4bb96f585eb60d50610f"],"productOrderId":["67a8df1ac0d3e6622a297ccb"],"message":"Order Placed Successfully"}
+688a4bb96f585eb60d50610f

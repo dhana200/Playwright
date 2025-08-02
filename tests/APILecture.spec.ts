@@ -2,7 +2,7 @@ import {test, expect, request} from '@playwright/test';
 
 // Importing the APIUtils class from the Utils directory
 // This class handles API interactions such as login and order creation
-import { APIUtils } from './Utils/APIUtils';
+import { APIUtils } from '../Utils/APIUtils';
 
 // Initialize response variable to store the order response
 let response:any;
@@ -32,7 +32,7 @@ test.beforeAll(async () =>{
 
 });
 
-test('API Testcase', async ({page}) => {
+test('@API API Testcase', async ({page}) => {
 
     // Set the token in local storage for the page context
     // This allows the page to access the token for authenticated requests
