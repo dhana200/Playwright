@@ -1,7 +1,7 @@
 import{test, expect} from '@playwright/test';
 
 
-test.only('Network Abort and Network Logs', async({browser}) => {
+test('@NET Network Abort and Network Logs', async({browser}) => {
 
     // Launch the browser
     const context = await browser.newContext();

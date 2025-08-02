@@ -1,7 +1,7 @@
 import{test, expect} from '@playwright/test';
 
 
-test('UI Locators', async({browser}) => {
+test('@WEB UI Locators', async({browser}) => {
 
     // Launch the browser
     const context = await browser.newContext();

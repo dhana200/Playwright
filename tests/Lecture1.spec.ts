@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test('Search Laptops', async ({page}) => {
+test('@WEB Search Laptops', async ({page}) => {
 
     // Using the search bar
     const searchBar = page.locator('//input[@role="searchbox"]');
