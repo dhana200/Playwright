@@ -1,5 +1,5 @@
 import {test,expect,request} from '@playwright/test';
-const fs = require('fs');
+import  fs from 'fs';
 const statejson = './state.json';
 
 test.describe('Timesheet Tests', () => {
